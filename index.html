@@ -6,6 +6,7 @@
     <title>Shopping</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 </head>
 <body>
     <!--navbar-->
@@ -71,7 +72,7 @@
     </div>
 
     <!--Modal-->
-    <div class="modal" style="display: none;">
+    <div class="modal" style="display: none;" >
         <div class="modal-bg"></div>
         <div class="modal-page">
             <h2>Detail</h2>
@@ -102,6 +103,7 @@
         <div class="modal-bg"></div>
         <div class="modal-page">
             <h2>My Cart</h2>
+            <br>
             <div class="cartlist">
                 <div class="cartlist-items">
                     <div class="cartlist-left">
@@ -111,11 +113,53 @@
                             <p style="font-size: 1.2vw;">100 THB</p>
                         </div>
                     </div>
+                     
                     <div class="cartlist-right">
                         <p class="btnc">-</p>
                         <p>1</p>
                         <p class="btnc">+</p>
                     </div>
+                </div>
+
+                <div class="cartlist-items">
+                    <div class="cartlist-left">
+                        <img src="/imgs/5.jpg" alt="" >
+                        <div class="cartlisrt-detail">
+                            <p style="font-size: 1.5vw;">Product Name</p>
+                            <p style="font-size: 1.2vw;">100 THB</p>
+                        </div>
+                    </div>
+                     
+                    <div class="cartlist-right">
+                        <p class="btnc">-</p>
+                        <p>1</p>
+                        <p class="btnc">+</p>
+                    </div>
+                </div>  
+                
+                <div class="cartlist-items">
+                    <div class="cartlist-left">
+                        <img src="/imgs/5.jpg" alt="" >
+                        <div class="cartlisrt-detail">
+                            <p style="font-size: 1.5vw;">Product Name</p>
+                            <p style="font-size: 1.2vw;">100 THB</p>
+                        </div>
+                    </div>
+                     
+                    <div class="cartlist-right">
+                        <p class="btnc">-</p>
+                        <p>1</p>
+                        <p class="btnc">+</p>
+                    </div>
+                </div>  
+
+                <div class="btn-contro">
+                    <button class="btn">
+                        Cancel
+                    </button>
+                    <button class="btn btn-buy">
+                        buy
+                    </button>
                 </div>
             </div>
         </div>
