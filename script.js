@@ -94,3 +94,32 @@ function openProductDetail(index){
 function closeModal(){
     $(".modal").css('display','none')
 }
+
+//ปุ่ม AddToCart หรือ เพิ่มใส่ตระกล้า
+var cart = []
+function AddToCart(){
+    var pass = true
+    for(let i = 0; i < cart.length; i++){
+        if(productindex == cart[i].index){
+            cart[i].count++
+            pass = false
+        }
+    }
+    if(pass){
+        var obj = {
+            index: productindex,
+            id: product[productindex].id,
+            name: product[productindex].name,
+            price: product[productindex].price,
+            img: product[productindex].img,
+            count: 1
+        }
+        cart.push(obj)
+    }
+    console.log(cart)
+
+    Swal.fire({
+        icon:'success',
+        title:'Add ' + product[productindex].name + ' Ta Cart !'
+    })
+}
