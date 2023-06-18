@@ -47,6 +47,7 @@ nav{
 
 .nav-profile-cart{
     position: relative;
+    cursor: pointer;
 }
 .cartcout{
     position: absolute;

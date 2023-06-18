@@ -17,9 +17,9 @@
             
             <div class="nav-profile">
                 <p class="nav-profile-name">ชื่อ Band</p>
-                <div class="nav-profile-cart">
+                <div onclick="opencart()" class="nav-profile-cart">
                     <i class="fas fa-cart-shopping"></i>
-                    <div class="cartcout">
+                    <div id="cartcout" class="cartcout" style="display: none;">
                         0
                     </div>
                 </div>
@@ -74,62 +74,14 @@
         </div>
     </div>
     <!--My Cart-->
-    <div class="modal" style="display: none;">
+    <div id="modalCart" class="modal" style="display: none;">
         <div onclick="closeModal()" class="modal-bg"></div>
         <div class="modal-page">
             <h2>My Cart</h2>
             <br>
-            <div class="cartlist">
-                <div class="cartlist-items">
-                    <div class="cartlist-left">
-                        <img src="/imgs/5.jpg" alt="" >
-                        <div class="cartlisrt-detail">
-                            <p style="font-size: 1.5vw;">Product Name</p>
-                            <p style="font-size: 1.2vw;">100 THB</p>
-                        </div>
-                    </div>
-                     
-                    <div class="cartlist-right">
-                        <p class="btnc">-</p>
-                        <p>1</p>
-                        <p class="btnc">+</p>
-                    </div>
-                </div>
-
-                <div class="cartlist-items">
-                    <div class="cartlist-left">
-                        <img src="/imgs/5.jpg" alt="" >
-                        <div class="cartlisrt-detail">
-                            <p style="font-size: 1.5vw;">Product Name</p>
-                            <p style="font-size: 1.2vw;">100 THB</p>
-                        </div>
-                    </div>
-                     
-                    <div class="cartlist-right">
-                        <p onclick="closeModal()" class="btnc">-</p>
-                        <p>1</p>
-                        <p class="btnc">+</p>
-                    </div>
-                </div>  
-                
-                <div class="cartlist-items">
-                    <div class="cartlist-left">
-                        <img src="/imgs/5.jpg" alt="" >
-                        <div class="cartlisrt-detail">
-                            <p style="font-size: 1.5vw;">Product Name</p>
-                            <p style="font-size: 1.2vw;">100 THB</p>
-                        </div>
-                    </div>
-                     
-                    <div class="cartlist-right">
-                        <p class="btnc">-</p>
-                        <p>1</p>
-                        <p class="btnc">+</p>
-                    </div>
-                </div>  
-
+            <div id="MyCart" class="cartlist"> 
                 <div class="btn-contro">
-                    <button class="btn">
+                    <button onclick="closeModal()" class="btn">
                         Cancel
                     </button>
                     <button class="btn btn-buy">

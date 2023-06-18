@@ -122,4 +122,78 @@ function AddToCart(){
         icon:'success',
         title:'Add ' + product[productindex].name + ' Ta Cart !'
     })
+    $("#cartcout").css('display','flex').text(cart.length)
+}
+
+//ปุ่ม cart  หรือ ตระกล้า 
+function opencart(){
+    $('#modalCart').css('display','flex')
+    rendercart()
+}
+
+//rendercart
+function rendercart(){
+    if(cart.length > 0){
+        var html = ''
+        for(let i = 0; i < cart.length; i++){
+            html += `<div class="cartlist-items">
+                        <div class="cartlist-left">
+                            <img src="${cart[i].img}" alt="" >
+                            <div class="cartlisrt-detail">
+                                <p style="font-size: 1.5vw;">${cart[i].name}</p>
+                                <p style="font-size: 1.2vw;">${numberWithCommas(cart[i].price * cart[i].count)+ ' THB'}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cartlist-right">
+                            <p onclick="deinitems('-', ${i})" class="btnc">-</p>
+                            <p id="countitems${i}">${cart[i].count}</p>
+                            <p onclick="deinitems('+', ${i})" class="btnc">+</p>
+                        </div>
+                    </div> `
+        }
+        $("#MyCart").html(html)
+    }
+    else{
+        $("#MyCart").html('<p>Not found Product list</p>')
+    }
+}
+
+//ปุ่ม - +
+function deinitems(action, index){
+    if(action == '-'){
+        if(cart[index].count > 0){
+            cart[index].count--;
+            $("#countitems"+index).text(cart[index].count)
+
+            if(cart[index].count <=0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Are You Sure To Dalate?',
+                    showConfirmButton: true,
+                    showCancelButton: true,
+                    ConfirmButton: 'Delete',
+                    CancelButton: 'Cancel',
+                }).then((res) =>{
+                    if(res.isConfirmed){
+                        cart.splice(index, 1)
+                        rendercart()
+                        $("#cartcout").css('display','flex').text(cart.length)
+
+                        if(cart.length <= 0){
+                            $("#cartcout").css('display','none')
+                        }
+                    }
+                    else{
+                        cart[index].count++
+                        $("#countitems"+index).text(cart[index].count)
+                    }
+                })
+            }
+        }
+    }
+    else if(action == '+'){
+        cart[index].count++
+        $("#countitems"+index).text(cart[index].count)
+    }
 }
