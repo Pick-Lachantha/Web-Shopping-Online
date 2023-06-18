@@ -28,7 +28,7 @@
     <!--Content-->
     <div class="container">
         <div class="sidebar">
-            <input type="text" class="sidebar-search" placeholder="Search...">
+            <input onkeyup="searchsomething(this)" id="txt_search" type="text" class="sidebar-search" placeholder="Search...">
             <a href="#" class="sidebar-items">
                 Menu 1
             </a>
@@ -42,32 +42,9 @@
                 Menu 4
             </a>
         </div>
-        <div class="product">
-            <div class="product-items">
-                <img src="/imgs/1.jpg" alt="" class="product-img">
-                <p style="font-size: 1.2vw;">Product Name</p>
-                <p style="font-size: .9vw;">100 THB</p>
-            </div>
-            <div class="product-items">
-                <img src="/imgs/2.jpg" alt="" class="product-img">
-                <p style="font-size: 1.2vw;">Product Name</p>
-                <p style="font-size: .9vw;">100 THB</p>
-            </div>
-            <div class="product-items">
-                <img src="/imgs/3.jpg" alt="" class="product-img">
-                <p style="font-size: 1.2vw;">Product Name</p>
-                <p style="font-size: .9vw;">100 THB</p>
-            </div>
-            <div class="product-items">
-                <img src="/imgs/4.jpg" alt="" class="product-img">
-                <p style="font-size: 1.2vw;">Product Name</p>
-                <p style="font-size: .9vw;">100 THB</p>
-            </div>
-            <div class="product-items">
-                <img src="/imgs/5.jpg" alt="" class="product-img">
-                <p style="font-size: 1.2vw;">Product Name</p>
-                <p style="font-size: .9vw;">100 THB</p>
-            </div>
+        <div id="productlist" class="product">
+            
+
         </div>
     </div>
 
@@ -99,7 +76,7 @@
         </div>
     </div>
     <!--My Cart-->
-    <div class="modal">
+    <div class="modal" style="display: none;">
         <div class="modal-bg"></div>
         <div class="modal-page">
             <h2>My Cart</h2>
@@ -168,3 +145,4 @@
     <script src="/script.js"></script>
 </body>
 </html>
+
