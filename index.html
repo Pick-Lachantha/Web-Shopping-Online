@@ -29,17 +29,14 @@
     <div class="container">
         <div class="sidebar">
             <input onkeyup="searchsomething(this)" id="txt_search" type="text" class="sidebar-search" placeholder="Search...">
-            <a href="#" class="sidebar-items">
-                Menu 1
+            <a  onclick="searchproduct('all')" class="sidebar-items">
+                สินค้าทั้งหมด
             </a>
-            <a href="#" class="sidebar-items">
-                Menu 2
+            <a  onclick="searchproduct('ต้นกัญชา')" class="sidebar-items">
+                ต้นกัญชา
             </a>
-            <a href="#" class="sidebar-items">
-                Menu 3
-            </a>
-            <a href="#" class="sidebar-items">
-                Menu 4
+            <a  onclick="searchproduct('บ้องกัญชา')" class="sidebar-items">
+                บ้องกัญชา
             </a>
         </div>
         <div id="productlist" class="product">
@@ -49,21 +46,21 @@
     </div>
 
     <!--Modal-->
-    <div class="modal" style="display: none;" >
-        <div class="modal-bg"></div>
+    <div id="modalDesc" class="modal" style="display: none;" >
+        <div onclick="closeModal()" class="modal-bg"></div>
         <div class="modal-page">
             <h2>Detail</h2>
             <br>
                 <div class="modaldesc-content">
-                    <img src="/imgs/5.jpg" alt="" class="modaldesc-img">
+                    <img id="mdd-img" src="/imgs/5.jpg" alt="" class="modaldesc-img">
                     <div class="modaldesc-detail">
-                        <p style="font-size: 1.5vw;">Product Name</p>
-                        <p style="font-size: 1.2vw;">100 THB</p>
+                        <p id="mdd-name" style="font-size: 1.5vw;">Product Name</p>
+                        <p id="mdd-price"  style="font-size: 1.2vw;">100 THB</p>
                         <br>
-                        <p style="color: #333533;font-size: 1.1vw;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nesciunt numquam architecto officiis, molestias soluta. Illo ex nemo iusto similique quod quis tempora vero quasi aliquam ?</p>
+                        <p id="mdd-desc" style="color: #333533;font-size: 1.1vw;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nesciunt numquam architecto officiis, molestias soluta. Illo ex nemo iusto similique quod quis tempora vero quasi aliquam ?</p>
                         <br>
                         <div class="btn-contro">
-                            <button class="btn ">
+                            <button class="btn" onclick="closeModal()" >
                                 Close
                             </button>
                             <button class="btn btn-buy">
@@ -77,7 +74,7 @@
     </div>
     <!--My Cart-->
     <div class="modal" style="display: none;">
-        <div class="modal-bg"></div>
+        <div onclick="closeModal()" class="modal-bg"></div>
         <div class="modal-page">
             <h2>My Cart</h2>
             <br>
@@ -108,7 +105,7 @@
                     </div>
                      
                     <div class="cartlist-right">
-                        <p class="btnc">-</p>
+                        <p onclick="closeModal()" class="btnc">-</p>
                         <p>1</p>
                         <p class="btnc">+</p>
                     </div>

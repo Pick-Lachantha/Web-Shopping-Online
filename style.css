@@ -185,11 +185,14 @@ nav{
     font-size: 1.2vw;
     transition: .3s;
 }
+.btn:hover{
+    background: red;
+}
 .btn-buy{
      margin-left: 10px;
 }
 .btn-buy:hover{
-    background: red;
+    background: green;
 }
 
 

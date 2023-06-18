@@ -21,10 +21,11 @@ var product = [{
     type:'บ้องกัญชา'
 }]
 
+//แสดง Product
 $(document).ready(() =>{
     var html = ''
     for(let i =0; i < product.length; i++){
-       html += `<div class="product-items ${product[i].type}">
+       html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
                     <img src="${product[i].img}" alt="" class="product-img">
                     <p style="font-size: 1.2vw;">${product[i].name}</p>
                     <p style="font-size: .9vw;">${numberWithCommas(product[i].price)}</p>
@@ -33,6 +34,7 @@ $(document).ready(() =>{
     $("#productlist").html(html)
 })
 
+//Commas
 function numberWithCommas(x) {
     x = x.toString();
     var pattern = /(-?\d+)(\d{3})/;
@@ -50,7 +52,7 @@ function searchsomething(elem){
     var html = ''
     for(let i =0; i < product.length; i++){
         if(product[i].name.includes(value)){
-        html += `<div class="product-items ${product[i].type}">
+        html += `<div onclick="openProductDetail(${i})"  class="product-items ${product[i].type}">
                     <img src="${product[i].img}" alt="" class="product-img">
                     <p style="font-size: 1.2vw;">${product[i].name}</p>
                     <p style="font-size: .9vw;">${numberWithCommas(product[i].price)}</p>
@@ -63,4 +65,32 @@ function searchsomething(elem){
         $("#productlist").html(html)
     }
     }
+}
+
+//ปุ่ม เมนู
+function searchproduct(param){
+    $(".product-items").css('display','none')
+    if(param == 'all'){
+        $(".product-items").css('display','block')
+    }
+    else{
+        $("."+param).css('display','block')
+    }
+}
+
+
+//รายละเอียดสินค้า
+var productindex = 0
+function openProductDetail(index){
+    productindex = index
+    $("#modalDesc").css('display','flex')
+    $("#mdd-img").attr('src',product[index].img)
+    $("#mdd-name").text(product[index].name)
+    $("#mdd-price").text(numberWithCommas(product[index].price)+ ' THB')
+    $("#mdd-desc").text(product[index].description)
+}
+
+//ปุ่มปิด
+function closeModal(){
+    $(".modal").css('display','none')
 }
