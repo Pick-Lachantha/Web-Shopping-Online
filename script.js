@@ -1,25 +1,28 @@
-var product = [{
-    id: 1,
-    img: 'https://cdn.pixabay.com/photo/2020/10/22/10/42/hemp-5675705_640.jpg',
-    name: 'ต้นกัญชา',
-    price: 500,
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium non aliquid cum iste, debitis odit.',
-    type:'ต้นกัญชา'
-},{
-    id: 2,
-    img: 'https://cdn.pixabay.com/photo/2017/03/25/19/57/marijuana-2174302_1280.jpg',
-    name: 'กัญชาอัดแท่ง',
-    price: 800,
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium non aliquid cum iste, debitis odit.',
-    type:'กัญชาอัดแท่ง'
-},{
-    id: 3,
-    img: 'https://media.istockphoto.com/id/637492698/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%AA%E0%B8%B9%E0%B8%9A%E0%B8%9A%E0%B8%B8%E0%B8%AB%E0%B8%A3%E0%B8%B5%E0%B9%88%E0%B8%9A%E0%B9%89%E0%B8%AD%E0%B8%87.jpg?s=612x612&w=0&k=20&c=f8n1hsdTYygZFqPTtOoP8leVhR5YuQRRrlsRjGsNgQg=',
-    name: 'บ้องกัญชา',
-    price: 1100,
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium non aliquid cum iste, debitis odit.',
-    type:'บ้องกัญชา'
-}]
+ var product = [{
+     id: 1,
+     img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740',
+     name: 'Nike',
+     price: 7000,
+     description: 'Nike Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, labore dolorum optio ad consequatur cupiditate!',
+     type: 'shoe'
+
+ }, {
+
+     id: 2,
+     img: 'https://images.unsplash.com/photo-1511746315387-c4a76990fdce?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740',
+     name: 'Adidas shirt',
+     price: 1500,
+     description: 'Adidas shirt Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, labore dolorum optio ad consequatur cupiditate!',
+     type: 'shirt'
+ }, {
+     id: 3,
+     img: 'https://images.unsplash.com/photo-1593287073863-c992914cb3e3?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774',
+     name: 'Adidas shoe',
+     price: 45000,
+     description: 'Adidas shoe Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, labore dolorum optio ad consequatur cupiditate!',
+     type: 'shoe'
+}];
+
 
 //แสดง Product
 $(document).ready(() =>{
@@ -44,31 +47,33 @@ function numberWithCommas(x) {
 }
 
 //Search
-function searchsomething(elem){
-    //console.log(elem.id)
+function searchsomething(elem) {
+    // console.log('#'+elem.id)
     var value = $('#'+elem.id).val()
     console.log(value)
 
-    var html = ''
-    for(let i =0; i < product.length; i++){
-        if(product[i].name.includes(value)){
-        html += `<div onclick="openProductDetail(${i})"  class="product-items ${product[i].type}">
-                    <img src="${product[i].img}" alt="" class="product-img">
+    var html = '';
+    for (let i = 0; i < product.length; i++) {
+        if( product[i].name.includes(value) ) {
+            html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
+                    <img class="product-img" src="./imgs/${product[i].img}" alt="">
                     <p style="font-size: 1.2vw;">${product[i].name}</p>
-                    <p style="font-size: .9vw;">${numberWithCommas(product[i].price)}</p>
-                 </div>`
-            }
-    if(html == ''){
-        $("#productlist").html(`<p> Not Found Product</p>`)
+                    <p stlye="font-size: 1vw;">${ numberWithCommas(product[i].price) } THB</p>
+                </div>`;
+        }
     }
-    else{
-        $("#productlist").html(html)
+    if(html == '') {
+        $("#productlist").html(`<p>Not found product</p>`);
+    } else {
+        $("#productlist").html(html);
     }
-    }
+
 }
+
 
 //ปุ่ม เมนู
 function searchproduct(param){
+    console.log(param)
     $(".product-items").css('display','none')
     if(param == 'all'){
         $(".product-items").css('display','block')

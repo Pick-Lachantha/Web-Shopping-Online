@@ -13,8 +13,8 @@
     <!--navbar-->
     <nav>
         <div class="nav-container">
-            <a href="index.html"><img src="/imgs/Logo.webp" class="logonav"></a>
-            
+            <a href="index.html"><img src="/imgs/logo-full.png" class="logonav"></a>
+
             <div class="nav-profile">
                 <p class="nav-profile-name">ชื่อ Band</p>
                 <div onclick="opencart()" class="nav-profile-cart">
@@ -29,20 +29,19 @@
     <!--Content-->
     <div class="container">
         <div class="sidebar">
-            <input onkeyup="searchsomething(this)" id="txt_search" type="text" class="sidebar-search" placeholder="Search...">
-            <a  onclick="searchproduct('all')" class="sidebar-items">
-                สินค้าทั้งหมด
+            <input onkeyup="searchsomething(this)" id="txt_search" type="text" class="sidebar-search" placeholder="Search something...">
+            
+            <a onclick="searchproduct('all')" class="sidebar-items">
+                All product
             </a>
-            <a  onclick="searchproduct('ต้นกัญชา')" class="sidebar-items">
-                ต้นกัญชา
+            <a onclick="searchproduct('shoe')" class="sidebar-items">
+                Shoe
             </a>
-            <a  onclick="searchproduct('บ้องกัญชา')" class="sidebar-items">
-                บ้องกัญชา
+            <a onclick="searchproduct('shirt')" class="sidebar-items">
+                Shirt
             </a>
         </div>
         <div id="productlist" class="product">
-            
-
         </div>
     </div>
 
@@ -53,7 +52,7 @@
             <h2>Detail</h2>
             <br>
                 <div class="modaldesc-content">
-                    <img id="mdd-img" src="/imgs/5.jpg" alt="" class="modaldesc-img">
+                    <img id="mdd-img" src="/imgs/1653718795081.jpg" alt="" class="modaldesc-img">
                     <div class="modaldesc-detail">
                         <p id="mdd-name" style="font-size: 1.5vw;">Product Name</p>
                         <p id="mdd-price"  style="font-size: 1.2vw;">100 THB</p>
