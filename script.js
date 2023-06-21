@@ -26,6 +26,7 @@
 
 //แสดง Product
 $(document).ready(() =>{
+
     var html = ''
     for(let i =0; i < product.length; i++){
        html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
