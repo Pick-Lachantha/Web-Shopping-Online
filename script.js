@@ -1,4 +1,4 @@
- var product = [{
+ /*var product = [{
      id: 1,
      img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740',
      name: 'Nike',
@@ -21,8 +21,9 @@
      price: 45000,
      description: 'Adidas shoe Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, labore dolorum optio ad consequatur cupiditate!',
      type: 'shoe'
-}];
+}];*/
 
+var product;
 
 //แสดง Product
 $(document).ready(() =>{
@@ -32,21 +33,24 @@ $(document).ready(() =>{
         url: './api/getallproduct.php',
         success: function(response){
             console.log(response)
+            if(response.ResCode == 200){
+
+                product = response.Result;
+
+                var html = ''
+                    for(let i = 0; i < product.length; i++){
+                        html += `<div onclick="openProductDetail(${i})"class="product-items ${product[i].type}">
+                        <img src="./imgs/${product[i].img}" alt="" class="product-img">
+                        <p style="font-size: 1.2vw;">${product[i].name}</p>
+                        <p style="font-size: .9vw;">${numberWithCommas(product[i].price)}</p></div>`
+                    }
+                    $("#productlist").html(html)
+            }
         }, error: function(err){
             console.log(err)
         }
     })
 
-
-    var html = ''
-    for(let i =0; i < product.length; i++){
-       html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
-                    <img src="${product[i].img}" alt="" class="product-img">
-                    <p style="font-size: 1.2vw;">${product[i].name}</p>
-                    <p style="font-size: .9vw;">${numberWithCommas(product[i].price)}</p>
-                </div>`
-    }
-    $("#productlist").html(html)
 })
 
 //Commas
