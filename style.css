@@ -20,3 +20,7 @@ nav{
 
     margin: 0 auto;  /*จัดซ้ายขวาให้อยู่ Auto หรือ ตรงกลาง*/
 }
+.logonav{
+    width: 7vw;
+    object-fit: contain;
+}
