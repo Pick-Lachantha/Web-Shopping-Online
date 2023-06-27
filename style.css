@@ -19,6 +19,10 @@ nav{
     background: yellow;
 
     margin: 0 auto;  /*จัดซ้ายขวาให้อยู่ Auto หรือ ตรงกลาง*/
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .logonav{
     width: 7vw;
