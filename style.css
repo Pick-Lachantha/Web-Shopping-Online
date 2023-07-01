@@ -162,7 +162,7 @@ nav{
 .modal-page{
     min-width: 30vw;
     max-width: 60vw;
-    max-height: 30vw;
+    max-height: 40vw;
     overflow: scroll;
     background: white;
     border-radius: 8px;
