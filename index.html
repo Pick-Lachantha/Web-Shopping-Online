@@ -34,16 +34,19 @@
 <!--content-->
     <div class="container">
         <div class="sidebar">
-            <input onchange="searchsomething(this)" id="txt_search" type="text" class="sidebar-search" placeholder="Search....">
+            <input onkeyup="searchsomething(this)" id="txt_search" type="text" class="sidebar-search" placeholder="Search....">
 
-            <a href="#" class="sidebar-items">
-                menu1
+            <a onclick="searchproduct('all')" class="sidebar-items">
+                All Product
             </a>
-            <a href="#" class="sidebar-items">
-                menu2
+            <a onclick="searchproduct('puma')" class="sidebar-items">
+                Puma
             </a>
-            <a href="#" class="sidebar-items">
-                menu3
+            <a onclick="searchproduct('converse')" class="sidebar-items">
+                Converse
+            </a>
+            <a onclick="searchproduct('vans')" class="sidebar-items">
+                Vans
             </a>
         </div>
         <div id="productlist" class="product">

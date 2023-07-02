@@ -46,6 +46,33 @@ var product = [
     }
 
 //ช่องค้นหา
-function searchsomething(elem){
-    console.log(elem)
+    function searchsomething(elem){
+        //console.log(elem)
+        var value = $('#'+elem.id).val()
+
+        var html = '';
+            for (let i = 0; i < product.length; i++) {
+                if (product[i].name.includes(value)) {
+                    html+= `<div class="product-itmes ${product[i].type}">
+                        <img class="product-img" src="${product[i].img} alt="">
+                        <p style="font-size: 1.5vw;">${product[i].name}</p>
+                        <p style="font-size: 1.2vw;">${numberWithCommas (product[i].price)} THB</p></div>`;
+                }
+            }
+            if (html == '') {
+                $("#productlist").html('<p>Not Found Product</p>')
+            }else{
+                $("#productlist").html(html)
+            }   
+    }
+
+//ปุ่ม Menu
+function searchproduct(param){
+    $(".product-itmes").css('display','none')
+    if (param == 'all') {
+        $(".product-itmes").css('display','block')
+    }
+    else{
+        $("."+param).css('display','block')
+    }
 }
