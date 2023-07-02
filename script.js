@@ -46,3 +46,6 @@ var product = [
     }
 
 //ช่องค้นหา
+function searchsomething(elem){
+    console.log(elem)
+}
