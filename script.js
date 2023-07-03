@@ -96,7 +96,27 @@ function closeModal(){
 }
 
 //เพิ่มสินค้า หรือ Add to Cart
-var cart = []
-function addtocart(){
-    var pass = ture
+var cart = [];
+function addtocart() {
+    var pass = true;
+
+    for (let i = 0; i < cart.length; i++) {
+        
+    }
+
+    if(pass) {
+        var obj = {
+            index: productindex,
+            id: product[productindex].id,
+            name: product[productindex].name,
+            price: product[productindex].price,
+            img: product[productindex].img,
+            count: 1
+        };
+        //console.log(obj)
+
+        cart.push(obj)
+    }
+    console.log(cart)
+    
 }
