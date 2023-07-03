@@ -94,3 +94,8 @@ function openProductDetail(index){
 function closeModal(){
     $(".modal").css('display','none')
 }
+
+//เพิ่มสินค้า หรือ Add to Cart
+function addtocart(){
+    
+}
