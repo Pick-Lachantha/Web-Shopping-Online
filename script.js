@@ -28,7 +28,7 @@ var product = [
     $(document).ready(()=>{
         var html = '';
         for (let i = 0; i < product.length; i++) {
-            html+= `<div class="product-itmes ${product[i].type}">
+            html+= `<div onclick="openProductDetail(${i})" class="product-itmes ${product[i].type}">
                     <img class="product-img" src="${product[i].img} alt="">
                     <p style="font-size: 1.5vw;">${product[i].name}</p>
                     <p style="font-size: 1.2vw;">${numberWithCommas (product[i].price)} THB</p></div>`;
@@ -53,7 +53,7 @@ var product = [
         var html = '';
             for (let i = 0; i < product.length; i++) {
                 if (product[i].name.includes(value)) {
-                    html+= `<div class="product-itmes ${product[i].type}">
+                    html+= `<div onclick="openProductDetail(${i})" class="product-itmes ${product[i].type}">
                         <img class="product-img" src="${product[i].img} alt="">
                         <p style="font-size: 1.5vw;">${product[i].name}</p>
                         <p style="font-size: 1.2vw;">${numberWithCommas (product[i].price)} THB</p></div>`;
@@ -75,4 +75,20 @@ function searchproduct(param){
     else{
         $("."+param).css('display','block')
     }
+}
+
+
+//openProductDetail
+var productindex = 0
+function openProductDetail(index){
+    productindex  = index
+    console.log(productindex)
+    $("#modalDesc").css('display','flex')
+    $("#mdd-img").attr('src',product[index].img)
+    $("#mdd-name").text(product[index].name)
+}
+
+//ปุ่มปิด
+function closeModal(){
+    $(".modal").css('display','none')
 }
