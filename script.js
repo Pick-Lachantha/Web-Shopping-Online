@@ -96,6 +96,7 @@ function closeModal(){
 }
 
 //เพิ่มสินค้า หรือ Add to Cart
+var cart = []
 function addtocart(){
-    
+    var pass = ture
 }
