@@ -101,7 +101,10 @@ function addtocart() {
     var pass = true;
 
     for (let i = 0; i < cart.length; i++) {
-        
+        if(productindex == cart[i].index){
+            cart[i].count++
+            pass = false
+        }
     }
 
     if(pass) {
@@ -118,5 +121,10 @@ function addtocart() {
         cart.push(obj)
     }
     console.log(cart)
+    
+    Swal.file({
+        icon:'success',
+        title: 'Add'+ product[productindex].name + ' to Cart !'
+    })
     
 }
