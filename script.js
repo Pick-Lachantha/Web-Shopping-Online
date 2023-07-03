@@ -122,9 +122,9 @@ function addtocart() {
     }
     console.log(cart)
     
-    Swal.file({
+    Swal.fire({
         icon:'success',
-        title: 'Add'+ product[productindex].name + ' to Cart !'
+        title: 'Add '+ product[productindex].name + ' to Cart !'
     })
     
 }
