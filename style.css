@@ -44,6 +44,7 @@ nav{
 }
 .nav-profile-cart{
     /*position: relative;*/
+    cursor: pointer;
 }
 .cartcount{
     position: absolute;
@@ -161,7 +162,7 @@ nav{
 }
 .modal-page{
     z-index: 99;
-    min-width: 30vw;
+    min-width: 45vw;
     max-width: 60vw;
     max-height: 40vw;
     overflow: scroll;
@@ -223,7 +224,7 @@ nav{
     /*background: purple;*/
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2vw;
+    margin-bottom: 1.5vw;
 }
 .cartlist-left{
    /*background: aqua;*/

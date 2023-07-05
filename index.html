@@ -21,10 +21,10 @@
 
             <div class="nav-profile">
                 <p class="nav-profile-name">Profile</p>
-                <div class="nav-profile-cart">
+                <div onclick="openCart()" class="nav-profile-cart">
                     <i class="fas fa-cart-shopping"></i>
-                    <div class="cartcount">
-                        5
+                    <div id="cartcount" class="cartcount" style="display: none;">
+                        0
                     </div>
                 </div>
             </div>
@@ -82,62 +82,13 @@
 
 
 <!--Modal Cart -->
-    <div class="modal" style="display: none;">
-        <div class="modal-bg"></div>
+    <div id="modalCart" class="modal" style="display: none;">
+        <div class="modal-bg" onclick="closeModal()" ></div>
         <div class="modal-page">
             <p style="font-size: 2vw; margin-bottom: 2vw;">My Cart</p>
-            <div class="cartlist">
-                <div class="cartlist-items">
-                    <div class="cartlist-left">
-                        <img src="./imgs/1653718816063.jpg" alt="" style="margin-right: 1vw;">
-                        <div class="cartlist-detail">
-                            <p style="font-size: 1.5vw;">Product Name</p>
-                            <p style="font-size: 1.2vw;">500 THB</p>
-                        </div>
-                    </div>
-                    <div class="cartlist-right">
-                        <p class="btnc">-</p>
-                        <p style="margin: 0 2vw;">1</p>
-                        <p class="btnc">+</p>
-                    </div>
-                </div>
+            <div id="mycart" class="cartlist">
+                
             </div>
-
-            <div class="cartlist">
-                <div class="cartlist-items">
-                    <div class="cartlist-left">
-                        <img src="./imgs/1653718816063.jpg" alt="" style="margin-right: 1vw;">
-                        <div class="cartlist-detail">
-                            <p style="font-size: 1.5vw;">Product Name</p>
-                            <p style="font-size: 1.2vw;">500 THB</p>
-                        </div>
-                    </div>
-                    <div class="cartlist-right">
-                        <p class="btnc">-</p>
-                        <p style="margin: 0 2vw;">1</p>
-                        <p class="btnc">+</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cartlist">
-                <div class="cartlist-items">
-                    <div class="cartlist-left">
-                        <img src="./imgs/1653718816063.jpg" alt="" style="margin-right: 1vw;">
-                        <div class="cartlist-detail">
-                            <p style="font-size: 1.5vw;">Product Name</p>
-                            <p style="font-size: 1.2vw;">500 THB</p>
-                        </div>
-                    </div>
-                    <div class="cartlist-right">
-                        <p class="btnc">-</p>
-                        <p style="margin: 0 2vw;">1</p>
-                        <p class="btnc">+</p>
-                    </div>
-                </div>
-            </div>
-
-
             <div class="btn-control">
                 <div onclick="closeModal()" class="btn">
                     Cancel
