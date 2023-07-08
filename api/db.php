@@ -12,7 +12,7 @@
 
         echo"database is cinnected";
     }
-    catch(PDOException  $e){
+    catch(PEOException  $e){
         echo $e->getMessage();
     }
 ?>
