@@ -1,52 +1,54 @@
 <?php
+
     require_once('./db.php');
 
-    try{
-        if($_SERVER['REQUEST_METHOD']=='GET'){
+    try {
+        if($_SERVER['REQUEST_METHOD'] == 'GET') {
             $object = new stdClass();
 
-            $stmt = $db->prepare('selec * form sp_product order by id desc');
+            $stmt = $db->prepare('select * from sp_product order by id desc');
 
-            if($stmt->execute()){
+            if($stmt->execute()) {
                 $num = $stmt->rowCount();
-                if ($num > 0) {
-                    
+                if($num > 0) {
+
                     $object->Result = array();
-                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         extract($row);
-                        $items = array(
-                            "This is Name" => $name,
-                            "This is price" => $price
-                        );
-                        array_push($object->Result, $items);
+                        // $items = array(
+                        //     "thisisname" => $name,
+                        //     "thisisprice" => $price,
+                        // );
+                        // array_push( $object->Result , $items );
+                        array_push( $object->Result , $row );
                     }
                     $object->RespCode = 200;
                     $object->RespMessage = 'success';
                     http_response_code(200);
-
-                }else{
+                }
+                else {
                     $object->RespCode = 400;
                     $object->Log = 0;
-                    $object->RespMessage = 'Bad : Not Found Data';
+                    $object->RespMessage = 'bad : Not found data';
                     http_response_code(400);
                 }
 
                 echo json_encode($object);
-
-            }else{
+            }
+            else {
                 $object->RespCode = 500;
                 $object->Log = 1;
-                $object->RespMessage = 'Bad : bad SQL';
+                $object->RespMessage = 'bad : bad sql';
                 http_response_code(400);
-
-
             }
-        }else{
+        }
+        else {
             http_response_code(405);
         }
     }
-    catch(PEOException  $e){
+    catch(PDOException $e) {
         http_response_code(500);
         echo $e->getMessage();
     }
+
 ?> 
