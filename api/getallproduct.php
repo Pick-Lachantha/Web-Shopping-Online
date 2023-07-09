@@ -29,8 +29,10 @@
                     $object->Log = 0;
                     $object->RespMessage = 'Bad : Not Found Data';
                     http_response_code(400);
-
                 }
+
+                echo json_encode($object);
+
             }else{
                 $object->RespCode = 500;
                 $object->Log = 1;
