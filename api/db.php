@@ -10,7 +10,7 @@
         $db = new PDO("mysql:host=${db_host}; dbname=${dbname}", $db_user, $db_pass);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        echo"database is cinnected";
+        //echo"database is cinnected";
     }
     catch(PEOException  $e){
         echo $e->getMessage();
