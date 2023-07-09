@@ -25,7 +25,7 @@
 
     }];*/
 
-var product
+
 
 $(document).ready(() => {
 
@@ -41,17 +41,18 @@ $(document).ready(() => {
                 var html = '';
                 for (let i = 0; i < product.length; i++) {
                     html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
-                                <img class="product-img" src="./imgs/${product[i].img}" alt="">
+                                <img class="product-img" src="${product[i].img}" alt="">
                                 <p style="font-size: 1.2vw;">${product[i].name}</p>
                                 <p stlye="font-size: 1vw;">${ numberWithCommas(product[i].price) } THB</p>
-                             </div>`;
+                             </div>`
                 }
-                $("#productlist").html(html);
+                $("#productlist").html(html)
             }
         }, error: function(err) {
             console.log(err)
         }
     })
+
 })
 
 //function ใส่ Commas
