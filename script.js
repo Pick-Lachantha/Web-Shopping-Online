@@ -1,4 +1,4 @@
-/*var product = [
+var product = [
     {
         id: 1,
         img: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2hvZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
@@ -23,36 +23,33 @@
         description: 'vans Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio esse, porro doloribus magni assumenda omnis.',
         type: 'vans',
 
-    }];*/
-
+}];
 
 
 $(document).ready(() => {
+
 
     $.ajax({
         method: 'get',
         url: './api/getallproduct.php',
         success: function(response) {
             console.log(response)
-            if(response.RespCode == 200) {
-
-                product = response.Result;
-
-                var html = '';
-                for (let i = 0; i < product.length; i++) {
-                    html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
-                                <img class="product-img" src="${product[i].img}" alt="">
-                                <p style="font-size: 1.2vw;">${product[i].name}</p>
-                                <p stlye="font-size: 1vw;">${ numberWithCommas(product[i].price) } THB</p>
-                             </div>`
-                }
-                $("#productlist").html(html)
-            }
-        }, error: function(err) {
+       }, error: function(err) {
             console.log(err)
-        }
+       }
     })
 
+
+    var html = '';
+    for (let i = 0; i < product.length; i++) {
+        html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
+                    <img class="product-img" src="./imgs/${product[i].img}" alt="">
+                    <p style="font-size: 1.2vw;">${product[i].name}</p>
+                    <p stlye="font-size: 1vw;">${ numberWithCommas(product[i].price) } THB</p>
+                </div>`;
+    }
+    $("#productlist").html(html); 
+    
 })
 
 //function ใส่ Commas
