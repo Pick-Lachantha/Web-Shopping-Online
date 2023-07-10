@@ -1,4 +1,4 @@
-var product = [
+/*var product = [
     {
         id: 1,
         img: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2hvZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
@@ -23,7 +23,9 @@ var product = [
         description: 'vans Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio esse, porro doloribus magni assumenda omnis.',
         type: 'vans',
 
-}];
+}];*/
+
+var product
 
 
 $(document).ready(() => {
@@ -34,21 +36,27 @@ $(document).ready(() => {
         url: './api/getallproduct.php',
         success: function(response) {
             console.log(response)
+            if (response.RespCode == 200) {
+
+                product = response.Result;
+
+                var html = '';
+                    for (let i = 0; i < product.length; i++) {
+                         html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
+                        <img class="product-img" src="./imgs/${product[i].img}" alt="">
+                        <p style="font-size: 1.2vw;">${product[i].name}</p>
+                         <p stlye="font-size: 1vw;">${ numberWithCommas(product[i].price) } THB</p>
+                        </div>`;
+                    }
+                    $("#productlist").html(html);
+            }
        }, error: function(err) {
             console.log(err)
        }
     })
 
 
-    var html = '';
-    for (let i = 0; i < product.length; i++) {
-        html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
-                    <img class="product-img" src="./imgs/${product[i].img}" alt="">
-                    <p style="font-size: 1.2vw;">${product[i].name}</p>
-                    <p stlye="font-size: 1vw;">${ numberWithCommas(product[i].price) } THB</p>
-                </div>`;
-    }
-    $("#productlist").html(html); 
+     
     
 })
 
@@ -70,7 +78,7 @@ $(document).ready(() => {
             for (let i = 0; i < product.length; i++) {
                 if (product[i].name.includes(value)) {
                     html+= `<div onclick="openProductDetail(${i})" class="product-itmes ${product[i].type}">
-                        <img class="product-img" src="${product[i].img} alt="">
+                        <img class="product-img" src="./imgs/${product[i].img} alt="">
                         <p style="font-size: 1.5vw;">${product[i].name}</p>
                         <p style="font-size: 1.2vw;">${numberWithCommas (product[i].price)} THB</p></div>`;
                 }
@@ -100,7 +108,7 @@ function openProductDetail(index){
     productindex  = index
     console.log(productindex)
     $("#modalDesc").css('display','flex')
-    $("#mdd-img").attr('src',product[index].img)
+    $("#mdd-img").attr('src', './imgs/' + product[index].img)
     $("#mdd-name").text(product[index].name)
     $("#mdd-price").text(numberWithCommas(product[index].price)+ ' THB')
     $("#mdd-desc").text(product[index].description)
