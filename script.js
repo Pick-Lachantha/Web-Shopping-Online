@@ -154,10 +154,10 @@ function addtocart() {
 }
 
 //เปิด ตระกล้าสินค้า
-function openCart(){
-    $("#modalCart").css('display','flex')
-
-    rendercart()
+function openCart() {
+    $('#modalCart').css('display','flex')
+    
+    rendercart();
 }
 
 //
@@ -237,4 +237,19 @@ function deinitems(action, index){
 
     }
     
+}
+
+//ปุ่ม Buy
+function buynow(){
+    $.ajax({
+        method: 'post',
+        url: './api/buynow.php',
+        data: {
+             product: cart
+        }, success: function(response){
+            console.log(response)
+        }, error: function(err){
+            console.log(err)
+        }
+    })
 }
