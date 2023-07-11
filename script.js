@@ -168,7 +168,7 @@ function rendercart(){
         for (let i = 0; i < cart.length; i++) {
             html+= `<div class="cartlist-items">
                         <div class="cartlist-left">
-                        <img src="${cart[i].img}" style="margin-right: 1vw;">
+                        <img src="./imgs/${cart[i].img}" style="margin-right: 1vw;">
                         <div class="cartlist-detail">
                         <p style="font-size: 1.5vw;">${cart[i].name}</p>
                         <p style="font-size: 1.2vw;">${numberWithCommas(cart[i].price * cart[i].count+ ' THB')}</p></div>
