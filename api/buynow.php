@@ -30,7 +30,7 @@
                     }
                 }
                 
-                $shiping = $amount + 30;
+                $shiping = $amount + 15;
                 $vat = $shiping * 7 / 100;
                 $netamount = $shiping + $vat;
                 $transid = round(microtime(true) * 100);
@@ -44,6 +44,14 @@
                 ])){
                     $object->RespCode = 200;
                     $object->RespMessage = 'success';
+                   
+                    $object->Amount = new stdClass();
+                    $object->Amount->Amount = $amount;
+                    $object->Amount->Shipping = $shiping;
+                    $object->Amount->Vat = $vat;
+                    $object->Amount->Netamount = $netamount;
+
+
                     http_response_code(200);
                 }else{
                     $object->RespCode = 300;

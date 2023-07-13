@@ -248,6 +248,19 @@ function buynow(){
              product: cart
         }, success: function(response){
             console.log(response)
+            if(response.RespCode == 200){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thank You'
+                })
+
+            }
+            else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Something is went wrong'
+                })
+            }
         }, error: function(err){
             console.log(err)
         }
