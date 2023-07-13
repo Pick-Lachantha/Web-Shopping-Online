@@ -261,6 +261,7 @@ function buynow(){
                     if(res.isConfirmed){
                         cart = [];
                         closeModal();
+                        $("#cartcount").css('display', 'none')
                     }
                 })
 
