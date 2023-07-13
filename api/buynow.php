@@ -43,10 +43,13 @@
                     $transid, $product,  $amount, $shiping, $vat, $netamount, 'PENDING', $mil, $updated_at
                 ])){
                     $object->RespCode = 200;
-                    $object->Amount = $amount;
-                    echo json_encode($object);
+                    $object->RespMessage = 'success';
                     http_response_code(200);
                 }else{
+                    $object->RespCode = 300;
+                    $object->Log = 0;
+                    $object->RespMessage = 'Bad : insert transaction fail';
+                    http_response_code(300);
 
                 }
 
@@ -54,10 +57,13 @@
 
             }
             else{
-
+                $object->RespCode = 500;
+                    $object->Log = 1;
+                    $object->RespMessage = 'Bad : cant get product';
+                    http_response_code(500);
             }
 
-
+            echo json_encode($object);
 
         }
         else {
