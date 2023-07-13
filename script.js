@@ -251,7 +251,17 @@ function buynow(){
             if(response.RespCode == 200){
                 Swal.fire({
                     icon: 'success',
-                    title: 'Thank You'
+                    title: 'Thank You',
+                   html:`<p> Amount : ${response.Amount.Amount}</p>
+                          <p> Shipping : ${response.Amount.Shipping}</p>
+                          <p> Vat : ${response.Amount.Vat}</p>
+                          <p> Netamount : ${response.Amount.Netamount}</p>
+                    `
+                }).then((res)=>{
+                    if(res.isConfirmed){
+                        cart = [];
+                        closeModal();
+                    }
                 })
 
             }
