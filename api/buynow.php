@@ -19,7 +19,7 @@
                         "id" => $id,
                         "price" => $price,
                     );
-                    array_push(  $queryproduct, $items)
+                    array_push(  $queryproduct, $items);
                 }
                 for ($i=0; $i < count($product); $i++) { 
                     for ($k=0; $k < count($queryproduct); $k++) { 
@@ -29,10 +29,29 @@
                         }
                     }
                 }
-                $object->RespCode = 200;
-                $object->Amount = $amount;
-                echo json_encode($object);
-                http_response_code(200);
+                
+                $shiping = $amount + 30;
+                $vat = $shiping * 7 / 100;
+                $netamount = $shiping + $vat;
+                $transid = round(microtime(true) * 100);
+                $product = json_encode($product);
+                $mil = time() * 1000;
+                $updated_at = date("Y-m-d h:i:sa");
+
+                $stmt = $db->prepare('insert into sp_transaction (transid,orderlist,amount,shipping,vat,netamount,operation,mil,updated_at) values (?,?,?,?,?,?,?,?,?)');
+                if($stmt->execute([
+                    $transid, $product,  $amount, $shiping, $vat, $netamount, 'PENDING', $mil, $updated_at
+                ])){
+                    $object->RespCode = 200;
+                    $object->Amount = $amount;
+                    echo json_encode($object);
+                    http_response_code(200);
+                }else{
+
+                }
+
+
+
             }
             else{
 
